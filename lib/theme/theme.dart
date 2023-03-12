@@ -2,22 +2,31 @@ import 'package:flutter/material.dart';
 
 ThemeData mainTheme() {
   return ThemeData(
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xffF35383),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          textStyle: TextStyle(fontWeight: FontWeight.bold)),
+    ),
     scaffoldBackgroundColor: Color(0xff1C1F2E),
     textTheme: TextTheme(
-      headline3: TextStyle(color: Colors.white, fontSize: 20),
+      headline3: TextStyle(
+        color: Colors.white,
+        fontSize: 20,
+        fontFamily: 'GB',
+      ),
       headline4: TextStyle(
-        color: Colors.white,
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-      ),
+          color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'GB'),
       button: TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-        fontSize: 16,
-      ),
-    ),
-    colorScheme: ColorScheme.light(
-      primary: Color(0xffF35383),
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+          fontFamily: ''),
     ),
   );
 }

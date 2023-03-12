@@ -67,16 +67,14 @@ class SwitchAccountScreen extends StatelessWidget {
                           SizedBox(
                             height: 20,
                           ),
-                          ElevatedButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Confirm',
-                              style: theme.textTheme.button,
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: theme.colorScheme.primary,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15)),
+                          SizedBox(
+                            height: 46,
+                            width: 129,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Confirm',
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -98,11 +96,13 @@ class SwitchAccountScreen extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 163, 0, 63),
           child: Row(
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Don\'t have an account ? /',
-                  style: theme.textTheme.headline3),
-              Text('Sign up', style: theme.textTheme.headline3),
+              Text('Don\'t have an account ? / ',
+                  style: theme.textTheme.headline4!
+                      .merge(TextStyle(color: Colors.grey[700]))),
+              Text(' Sign up', style: theme.textTheme.headline4),
             ],
           ),
         )
