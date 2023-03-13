@@ -27,6 +27,13 @@ ThemeData mainTheme() {
           fontWeight: FontWeight.bold,
           fontSize: 16,
           fontFamily: ''),
+      headline6: TextStyle(
+        color: Colors.white,
+        fontFamily: 'GM',
+        fontSize: 20,
+      ),
     ),
+    colorScheme: ColorScheme.light(
+        primary: Color(0xffC5C5C5), secondary: Color(0xffF35383)),
   );
 }
