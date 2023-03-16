@@ -8,8 +8,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -22,6 +20,7 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         body: Stack(
           alignment: Alignment.center,
@@ -81,7 +80,7 @@ class _getContainerBoxState extends State<_getContainerBox> {
         Expanded(
           child: Container(
             decoration: BoxDecoration(
-              color: Constants.primaryColor,
+              color: kPrimaryColor,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(15),
                 topRight: Radius.circular(15),
@@ -100,7 +99,7 @@ class _getContainerBoxState extends State<_getContainerBox> {
                       'Sign in to ',
                       style: theme.textTheme.headline3,
                     ),
-                    Image(image: AssetImage(Constants.imageAsset + 'mood.png'))
+                    Image(image: AssetImage(kImageAsset + 'mood.png'))
                   ],
                 ),
                 SizedBox(height: 34),
@@ -109,26 +108,25 @@ class _getContainerBoxState extends State<_getContainerBox> {
                   child: TextField(
                     style: theme.textTheme.headline4,
                     focusNode: focusNode1,
-                    cursorColor: Constants.secondaryColor,
+                    cursorColor: kSecondaryColor,
                     decoration: InputDecoration(
                       labelText: 'Email',
                       labelStyle: theme.textTheme.headline6!.merge(TextStyle(
                           color: focusNode1.hasFocus
-                              ? Constants.secondaryColor
-                              : Constants.textFieldBorderSideColor)),
+                              ? kSecondaryColor
+                              : kTextFieldBorderSideColor)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                           borderSide: BorderSide(
                             width: 3,
-                            color: Constants.secondaryColor,
+                            color: kSecondaryColor,
                           )),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                         borderSide: BorderSide(
-                            color: Constants.textFieldBorderSideColor,
-                            width: 3),
+                            color: kTextFieldBorderSideColor, width: 3),
                       ),
                     ),
                   ),
@@ -140,27 +138,26 @@ class _getContainerBoxState extends State<_getContainerBox> {
                   padding: EdgeInsets.symmetric(horizontal: 44),
                   child: TextField(
                     style: theme.textTheme.headline4,
-                    cursorColor: Constants.secondaryColor,
+                    cursorColor: kSecondaryColor,
                     focusNode: focusNode2,
                     decoration: InputDecoration(
                       labelText: 'Password',
                       labelStyle: theme.textTheme.headline6!.merge(TextStyle(
                           color: focusNode2.hasFocus
-                              ? Constants.secondaryColor
-                              : Constants.textFieldBorderSideColor)),
+                              ? kSecondaryColor
+                              : kTextFieldBorderSideColor)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                           borderSide: BorderSide(
                             width: 3,
-                            color: Constants.secondaryColor,
+                            color: kSecondaryColor,
                           )),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                         borderSide: BorderSide(
-                            color: Constants.textFieldBorderSideColor,
-                            width: 3),
+                            color: kTextFieldBorderSideColor, width: 3),
                       ),
                     ),
                   ),
@@ -207,7 +204,7 @@ class _getImageContainer extends StatelessWidget {
             child: Container(
               width: double.infinity,
               child: Image(
-                image: AssetImage(Constants.imageAsset + 'rocket.png'),
+                image: AssetImage(kImageAsset + 'rocket.png'),
                 fit: BoxFit.fill,
               ),
             ),

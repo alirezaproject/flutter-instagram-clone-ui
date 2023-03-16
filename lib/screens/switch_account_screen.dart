@@ -23,7 +23,7 @@ class SwitchAccountScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(
-                          "${Constants.imageAsset}switch_account_background.png"),
+                          "${kImageAsset}switch_account_background.png"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -56,8 +56,7 @@ class SwitchAccountScreen extends StatelessWidget {
                                 fit: BoxFit.cover,
                                 width: 130,
                                 height: 130,
-                                image: AssetImage(
-                                    "${Constants.imageAsset}profile.jpg"),
+                                image: AssetImage("${kImageAsset}profile.jpg"),
                               ),
                             ),
                             SizedBox(
