@@ -97,7 +97,7 @@ class _getContainerBoxState extends State<_getContainerBox> {
                   children: [
                     Text(
                       'Sign in to ',
-                      style: theme.textTheme.headline3,
+                      style: theme.textTheme.headlineSmall,
                     ),
                     Image(image: AssetImage(kImageAsset + 'mood.png'))
                   ],
@@ -106,15 +106,16 @@ class _getContainerBoxState extends State<_getContainerBox> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 44),
                   child: TextField(
-                    style: theme.textTheme.headline4,
+                    style: theme.textTheme.headlineMedium,
                     focusNode: focusNode1,
                     cursorColor: kSecondaryColor,
                     decoration: InputDecoration(
                       labelText: 'Email',
-                      labelStyle: theme.textTheme.headline6!.merge(TextStyle(
-                          color: focusNode1.hasFocus
-                              ? kSecondaryColor
-                              : kTextFieldBorderSideColor)),
+                      labelStyle: theme.textTheme.headlineLarge!.merge(
+                          TextStyle(
+                              color: focusNode1.hasFocus
+                                  ? kSecondaryColor
+                                  : kTextFieldBorderSideColor)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                       focusedBorder: OutlineInputBorder(
@@ -137,12 +138,13 @@ class _getContainerBoxState extends State<_getContainerBox> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 44),
                   child: TextField(
-                    style: theme.textTheme.headline4,
+                    style: theme.textTheme.headlineMedium,
                     cursorColor: kSecondaryColor,
                     focusNode: focusNode2,
+                    obscureText: true,
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      labelStyle: theme.textTheme.headline6!.merge(TextStyle(
+                      labelStyle: theme.textTheme.titleLarge!.merge(TextStyle(
                           color: focusNode2.hasFocus
                               ? kSecondaryColor
                               : kTextFieldBorderSideColor)),

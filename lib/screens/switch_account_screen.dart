@@ -64,7 +64,7 @@ class SwitchAccountScreen extends StatelessWidget {
                             ),
                             Text(
                               'Alireza Shokouhian',
-                              style: theme.textTheme.headline4,
+                              style: theme.textTheme.headlineMedium,
                             ),
                             SizedBox(
                               height: 20,
@@ -80,7 +80,7 @@ class SwitchAccountScreen extends StatelessWidget {
                             ),
                             Text(
                               'switch account',
-                              style: theme.textTheme.headline4,
+                              style: theme.textTheme.headlineMedium,
                             )
                           ],
                         ),

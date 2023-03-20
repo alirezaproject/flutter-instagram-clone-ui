@@ -8,26 +8,33 @@ ThemeData mainTheme() {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          textStyle: TextStyle(fontWeight: FontWeight.bold)),
+          textStyle: TextStyle(
+              fontWeight: FontWeight.bold, fontFamily: 'GB', fontSize: 16)),
     ),
     scaffoldBackgroundColor: Color(0xff1C1F2E),
     textTheme: TextTheme(
-      headline3: TextStyle(
+      bodySmall: TextStyle(color: Colors.white, fontFamily: 'SM'),
+      displaySmall: TextStyle(
         color: Colors.white,
-        fontSize: 20,
         fontFamily: 'GB',
+        fontSize: 12,
       ),
-      headline4: TextStyle(
+      displayMedium: TextStyle(
+        color: Colors.white,
+        fontFamily: 'GB',
+        fontSize: 14,
+      ),
+      headlineMedium: TextStyle(
           color: Colors.white,
           fontSize: 16,
           fontWeight: FontWeight.bold,
           fontFamily: 'GB'),
-      button: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
-          fontFamily: ''),
-      headline6: TextStyle(
+      headlineSmall: TextStyle(
+        color: Colors.white,
+        fontSize: 20,
+        fontFamily: 'GB',
+      ),
+      headlineLarge: TextStyle(
         color: Colors.white,
         fontFamily: 'GM',
         fontSize: 20,

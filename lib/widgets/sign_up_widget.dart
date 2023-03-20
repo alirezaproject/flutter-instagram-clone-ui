@@ -11,9 +11,9 @@ class SignUp extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('Don\'t have an account ? / ',
-            style: theme.textTheme.headline4!
+            style: theme.textTheme.headlineMedium!
                 .merge(TextStyle(color: Colors.grey[700]))),
-        Text(' Sign up', style: theme.textTheme.headline4),
+        Text(' Sign up', style: theme.textTheme.headlineMedium),
       ],
     );
   }
