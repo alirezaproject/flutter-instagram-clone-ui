@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:instagram/constants.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:instagram/widgets/bottomsheet_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,20 +29,51 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Center(
-          child: Container(
-            height: 120,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (BuildContext context, int index) {
-                if (index == 0)
-                  return _addStoryBox();
-                else
-                  return _storyBox();
-              },
+        child: CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          slivers: [
+            SliverToBoxAdapter(
+              child: ElevatedButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    backgroundColor: Colors.transparent,
+                    barrierColor: Colors.transparent,
+                    isScrollControlled: true,
+                    builder: (context) {
+                      return DraggableScrollableSheet(
+                        initialChildSize: 0.4,
+                        minChildSize: 0.2,
+                        maxChildSize: 0.7,
+                        builder: (context, scrollController) {
+                          return SharedBottomSheet(
+                              controller: scrollController);
+                        },
+                      );
+                    },
+                  );
+                },
+                child: Text('Open BottomSheet'),
+              ),
             ),
-          ),
+            SliverToBoxAdapter(child: _getStoryList()),
+            SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                return Column(
+                  children: [
+                    SizedBox(
+                      height: 34,
+                    ),
+                    _headerPost(theme),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    _postContent(theme: theme),
+                  ],
+                );
+              }, childCount: 4),
+            ),
+          ],
         ),
       ),
     );
@@ -82,7 +114,9 @@ class HomeScreen extends StatelessWidget {
 
   Widget _postList(ThemeData theme) {
     return ListView.builder(
-      itemCount: 3,
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: 9,
       itemBuilder: (context, index) {
         return Column(
           children: [
@@ -91,7 +125,7 @@ class HomeScreen extends StatelessWidget {
             ),
             _headerPost(theme),
             SizedBox(
-              height: 24,
+              height: 20,
             ),
             _postContent(theme: theme),
           ],
@@ -156,6 +190,23 @@ class HomeScreen extends StatelessWidget {
             style: TextStyle(color: Colors.white),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _getStoryList() {
+    return SizedBox(
+      height: 120,
+      child: ListView.builder(
+        physics: BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) {
+          if (index == 0)
+            return _addStoryBox();
+          else
+            return _storyBox();
+        },
       ),
     );
   }
@@ -263,3 +314,49 @@ class _postContent extends StatelessWidget {
     );
   }
 }
+
+
+/*
+SingleChildScrollView(
+          child: Column(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    backgroundColor: Colors.transparent,
+                    barrierColor: Colors.transparent,
+                    isScrollControlled: true,
+                    builder: (context) {
+                      return DraggableScrollableSheet(
+                        initialChildSize: 0.4,
+                        minChildSize: 0.2,
+                        maxChildSize: 0.7,
+                        builder: (context, scrollController) {
+                          return SharedBottomSheet(
+                              controller: scrollController);
+                        },
+                      );
+                    },
+                  );
+                },
+                child: Text('Open BottomSheet'),
+              ),
+              SizedBox(
+                height: 120,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    if (index == 0)
+                      return _addStoryBox();
+                    else
+                      return _storyBox();
+                  },
+                ),
+              ),
+              _postList(theme)
+            ],
+          ),
+        ),
+ */
